@@ -13,7 +13,8 @@ All commands are run from **this folder** (`preprocessing-telecom-churn`).
 ### 1. Go into this folder
 
 ```powershell
-cd "c:\Users\rehou\Documents\00-dream\End-to-End-AutoML-Insurance-main\preprocessing-telecom-churn"
+git clone 
+cd preprocessing-telecom-churn/
 ```
 
 ### 2. Start JupyterLab
