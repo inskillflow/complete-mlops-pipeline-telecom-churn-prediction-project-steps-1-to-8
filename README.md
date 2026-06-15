@@ -43,7 +43,7 @@ In JupyterLab: open `notebooks/01_preprocess_telecom_churn.ipynb`, then click
 Press `Ctrl+C` in the terminal, then:
 
 ```powershell
-docker compose down
+docker compose down -d
 ```
 
 ---
