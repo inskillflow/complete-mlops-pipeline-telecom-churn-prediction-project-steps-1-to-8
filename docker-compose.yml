@@ -1,0 +1,45 @@
+# =============================================================
+# Preprocessing environment: JupyterLab in Docker
+#
+# This is a SEPARATE, STANDALONE stack. Its only job is to run a
+# notebook that downloads the Telecom Churn dataset and produces:
+#   - output/train.csv
+#   - output/sample_test.csv
+#   - output/sample_test_labeled.csv
+#
+# Those three files are then copied into the MAIN AutoML project
+# (backend/data/...). This stack does NOT train any model.
+#
+# Start:  docker compose up
+# Open:   http://localhost:8888/lab     (token disabled below)
+# Stop:   Ctrl+C, then docker compose down
+# =============================================================
+
+services:
+  notebook:
+    # JupyterLab image that already includes pandas, numpy, scikit-learn.
+    image: quay.io/jupyter/scipy-notebook:python-3.11
+
+    container_name: telecom-preprocessing
+
+    ports:
+      - "8888:8888"
+
+    volumes:
+      # Your notebooks (edited live from your machine)
+      - ./notebooks:/home/jovyan/work/notebooks
+      # Where the raw downloaded CSV is stored
+      - ./data:/home/jovyan/work/data
+      # Where the produced train/test CSV files are written
+      - ./output:/home/jovyan/work/output
+
+    # Disable the login token so you can open JupyterLab directly.
+    # This is fine for a local lab. Never do this on a public server.
+    command: >
+      start-notebook.py
+      --IdentityProvider.token=''
+      --ServerApp.password=''
+
+    # Keep stdin/tty open so logs are readable.
+    stdin_open: true
+    tty: true
