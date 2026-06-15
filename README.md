@@ -20,7 +20,7 @@ cd preprocessing-telecom-churn/
 ### 2. Start JupyterLab
 
 ```powershell
-docker compose up
+docker compose up -d
 ```
 
 > First run downloads the Jupyter image (~1-2 GB). Later runs start in seconds.
