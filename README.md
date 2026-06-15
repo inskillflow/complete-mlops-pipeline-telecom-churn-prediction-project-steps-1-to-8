@@ -13,7 +13,7 @@ All commands are run from **this folder** (`preprocessing-telecom-churn`).
 ### 1. Go into this folder
 
 ```powershell
-git clone 
+git clone https://github.com/inskillflow/complete-mlops-pipeline-telecom-churn-prediction-project-steps-1-to-8.git preprocessing-telecom-churn
 cd preprocessing-telecom-churn/
 ```
 
